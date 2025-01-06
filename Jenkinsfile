@@ -1,7 +1,6 @@
 node {
     def app
     def acrHost = 'swkazurecr.azurecr.io'
-    def gitRepoName = 'voting-app-manifest'
 
     stage('Clone repository') {     
         checkout scm
@@ -25,7 +24,7 @@ node {
 				
                 sh "git commit -m 'Done by Jenkins Job changemanifest: ${env.BUILD_NUMBER}'"
 				
-                sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/${gitRepoName}.git HEAD:main'
+                sh 'git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/${GIT_USERNAME}/voting-app-manifest.git HEAD:main'
             }                
         }
     }
